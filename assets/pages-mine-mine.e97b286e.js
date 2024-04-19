@@ -1,0 +1,1 @@
+import{u as s,o as a,c as r,w as n,i as e,a as l,l as o,x as t}from"./index-f6d71e15.js";const u={__name:"mine",setup(u){const c=s();return(s,u)=>{const d=t,i=e;return a(),r(i,null,{default:n((()=>{var s;return[l(d,{src:null==(s=o(c).profile)?void 0:s.backgroundUrl,mode:""},null,8,["src"])]})),_:1})}}};export{u as default};
