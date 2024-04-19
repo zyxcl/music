@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "歌单",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
-    "play-bar": "../../components/playerBar",
-    "comment": "../../components/comment"
-  }
-}
