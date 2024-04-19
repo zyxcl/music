@@ -1,0 +1,15 @@
+/* 水平间距 */
+/* 水平间距 */
+.play-bar.data-v-5247c6cd {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.padding.data-v-5247c6cd {
+  bottom: 100rpx;
+}
+.chat-custom-right .icon.data-v-5247c6cd {
+  width: 80rpx;
+  height: 80rpx;
+}

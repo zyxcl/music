@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "播放器",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "playlist-card": "../../components/playlistCard",
+    "comment": "../../components/comment"
+  }
+}

@@ -1,0 +1,130 @@
+/* 水平间距 */
+/* 水平间距 */
+uni-page-body.data-v-0391012f {
+  height: 100%;
+}
+.player-wrap.data-v-0391012f {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.bg.data-v-0391012f {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.bg.data-v-0391012f::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.blur-image.data-v-0391012f {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.5);
+  filter: blur(30px);
+}
+.center.data-v-0391012f {
+  flex: 1;
+  overflow: hidden;
+}
+.song-disc.data-v-0391012f {
+  height: 600rpx;
+  padding-top: 140rpx;
+  position: relative;
+}
+.song-disc .needle-ab.data-v-0391012f {
+  width: 200rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -20rpx;
+  transform-origin: 18rpx 18rpx;
+  transform: rotate(-20deg);
+}
+.song-disc .song-circle.data-v-0391012f {
+  width: 600rpx;
+  height: 600rpx;
+  margin: 0 auto;
+  padding: 120rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.song-disc .song-circle .circle-bg.data-v-0391012f {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.song-disc .song-circle image.data-v-0391012f {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+}
+.lyric.data-v-0391012f {
+  color: #ffffff;
+  text-align: center;
+  height: 80%;
+  margin-top: 50rpx;
+  overflow: hidden;
+}
+.lyric .lyric-row.data-v-0391012f {
+  opacity: 0.5;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.lyric .active.data-v-0391012f {
+  opacity: 1;
+}
+.control.data-v-0391012f {
+  height: 300rpx;
+}
+.icons-bar.data-v-0391012f {
+  display: flex;
+  justify-content: center;
+}
+.icons-bar .uni-icons.data-v-0391012f {
+  margin: 0 40rpx;
+}
+.progress.data-v-0391012f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+  color: #ffffff;
+}
+.progress .time.data-v-0391012f {
+  width: 80rpx;
+  text-align: center;
+}
+.progress slider.data-v-0391012f {
+  flex: 1;
+}
+.play-bar.data-v-0391012f {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20rpx;
+}
+.play-bar .icon.data-v-0391012f {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 80rpx !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-bar .icon.data-v-0391012f text {
+  font-size: 80rpx !important;
+}
