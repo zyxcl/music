@@ -15,9 +15,7 @@ const comments = ref([])
 watchEffect(async () => {
   if (props.visible) {
     popup.value?.open()
-    console.log('获取评论');
     const res = await commentApi(props.type, props.id)
-    console.log(res);
     comments.value = res.comments
     hotComments.value = res.hotComments
   } else {

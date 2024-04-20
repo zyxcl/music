@@ -63,7 +63,7 @@ searchHotApi().then(res => {
   }
 }
 .red {
-  color: #c84341;
+  color: $primary-color;
 }
 .uni-tag--primary {
   border-color: #dddddd;

@@ -102,7 +102,7 @@ const goDetail = id => {
 <template>
 	<view class="container">
     <view class="header">
-      <uni-icons class="bars" type="bars" size="24" @click="userDrawer.open()"></uni-icons>
+      <uni-icons class="bars" color="#5e6d82" type="bars" size="30" @click="userDrawer.open()"></uni-icons>
       <view class="search" @click="goSearch">
         <uni-search-bar placeholder="搜索" bgColor="#EEEEEE" readonly />
       </view>
@@ -176,9 +176,9 @@ const goDetail = id => {
     align-items: center;
   }
   image {
-    width: 100rpx;
-    height: 100rpx;
-    background: #c84341;
+    width: 80rpx;
+    height: 80rpx;
+    background: $primary-color;
     border-radius: 50%;
   }
   .icon-name {
@@ -196,9 +196,6 @@ const goDetail = id => {
   image {
     width: 100%;
   }
-}
-::v-deep .uni-section .uni-section-header__decoration {
-  background: #c84341;
 }
 .playlist {
   display: flex;

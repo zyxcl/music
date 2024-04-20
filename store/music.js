@@ -58,7 +58,7 @@ export const useMusicStore = defineStore('music', () => {
     })
     currentIndex.value = 0
   }
-  
+  // 当前歌曲内容切换时修改播放url
   watch(curSongDetail, () => {
     audio.src = curSongDetail.value.url
   })
@@ -74,6 +74,7 @@ export const useMusicStore = defineStore('music', () => {
   }
   // 切歌
   const changeMusic = (index) => {
+    // 是否随机播放
     if (isRandom.value) {
       currentIndex.value = Math.floor(Math.random() * playlist.value.length)
     } else {
