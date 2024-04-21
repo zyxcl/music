@@ -1,5 +1,6 @@
 
-const BaseURL = 'https://zyxcl.xyz/music_api'
+// const BaseURL = 'https://zyxcl.xyz/music_api'
+const BaseURL = 'http://121.89.213.194:5001'
 
 // 封装请求函数
 export const request = ({ url, method = 'GET', data = {}, header = {} }) => {
@@ -64,6 +65,62 @@ export const searchApi = (keywords) => {
     url: '/search',
     data: {
       keywords
+    }
+  })
+}
+
+// 获取验证码
+export const captchaSentApi = (phone) => {
+  return request({
+    url: `/captcha/sent?timestamp=${Date.now()}`,
+    data: {
+      phone
+    }
+  })
+}
+// 校验验证码
+export const captchaVerifyApi = ({ phone, captcha }) => {
+  return request({
+    url: `/captcha/verify?timestamp=${Date.now()}`,
+    data: {
+      phone,
+      captcha
+    }
+  })
+}
+// 手机号登录
+export const loginCellphoneApi = ({ phone, captcha }) => {
+  return request({
+    url: `/login/cellphone`,
+    data: {
+      phone,
+      captcha
+    }
+  })
+}
+
+// 获取二维码的key
+export const qrKeyApi = () => {
+  return request({
+    url: `/login/qr/key?timestamp=${Date.now()}`
+  })
+}
+// 生成二维码
+export const qrCreateApi = (key) => {
+  return request({
+    url: `/login/qr/create?timestamp=${Date.now()}`,
+    data: {
+      key,
+      qrimg: 'qrimg'
+    }
+  })
+}
+// 二维码检测扫码状态接口
+export const qrCheckApi = (key) => {
+  return request({
+    url: `/login/qr/check?timestamp=${Date.now()}`,
+    data: {
+      key,
     }
   })
 }
