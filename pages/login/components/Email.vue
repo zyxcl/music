@@ -25,34 +25,40 @@
       }]
     }
   }
+  
+  const login = async () => {
+    try {
+      const res = await loginApi(formData.value)
+      if (res.code === 200) {
+        // 登录成功，把cookie存到本地
+        uni.setStorageSync('curCookie', res.cookie)
+        // 把用户信息存到store中
+        userStore.profile = res.profile
+        uni.showToast({
+          title: '登录成功',
+          icon: 'success'
+        })
+        uni.switchTab({
+          url: '/pages/index/index'
+        })
+      } else {
+        uni.showToast({
+        	title: '登录失败',
+        	icon: 'error'
+        })
+      }
+    } catch(e) {
+      uni.showToast({
+      	title: e,
+      	icon: 'error'
+      })
+    }
+  }
   const submit = async () => {
    try {
      await form.value.validate()
-     const res = await loginApi(formData.value)
-     if (res.code === 200) {
-       // 登录成功，把cookie存到本地
-       uni.setStorageSync('curCookie', res.cookie)
-       // 把用户信息存到store中
-       userStore.profile = res.profile
-       uni.showToast({
-         title: '登录成功',
-         icon: 'success'
-       })
-       uni.switchTab({
-         url: '/pages/index/index'
-       })
-     } else {
-       uni.showToast({
-       	title: res.msg,
-       	icon: 'error'
-       })
-     }
-   } catch(e) {
-     uni.showToast({
-     	title: e,
-     	icon: 'error'
-     })
-   }
+     login()
+   } catch(e) {}
   }
 </script>
 
@@ -66,7 +72,7 @@
         <uni-easyinput prefixIcon="locked" type="password" v-model="formData.password" placeholder="请输入密码" />
       </uni-forms-item>
     </uni-forms>
-    <button type="primary" @click="submit">提交</button>
+    <button type="primary" @click="submit">提交</button>    
   </view>
 </template>
 

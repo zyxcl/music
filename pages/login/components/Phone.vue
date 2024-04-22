@@ -1,7 +1,10 @@
 <script setup>
 import { captchaSentApi, captchaVerifyApi, loginCellphoneApi } from '@/api'
 import { ref, computed, onBeforeUnmount } from 'vue'
+import { useUserStore } from '@/store/user'
 
+// 引入store
+const userStore = useUserStore()
 const countDown = ref(0)
 const phone = ref('15801154632')
 const captcha = ref('')
@@ -25,9 +28,27 @@ const submit = async () => {
   try {
     await captchaVerifyApi({ phone: phone.value, captcha: captcha.value })
     const res = await loginCellphoneApi({ phone: phone.value, captcha: captcha.value })
-    console.log(res.data)
+    console.log(res);
+    if (res.code === 200) {
+      // 登录成功，把cookie存到本地
+      uni.setStorageSync('curCookie', res.cookie)
+      // 把用户信息存到store中
+      userStore.profile = res.profile
+      uni.showToast({
+        title: '登录成功',
+        icon: 'success'
+      })
+      uni.switchTab({
+        url: '/pages/index/index'
+      })
+    } else {
+      uni.showToast({
+      	title: '登录失败',
+      	icon: 'error'
+      })
+    }
   } catch (e) {
-    alert(e.response.data.message)
+    console.log(e);
   }
 }
 
@@ -41,9 +62,9 @@ onBeforeUnmount(() => {
     <view class="row"><input type="text" placeholder="请输入手机号" v-model.trim="phone"></view>
     <view class="row captcha">
       <input type="text" placeholder="请输入验证码" v-model="captcha">
-      <button @click="getCaptcha" :disabled="countDown > 0">{{ captchaText }}</button>
+      <button type="primary" @click="getCaptcha" :disabled="countDown > 0">{{ captchaText }}</button>
     </view>
-    <view class="row"><button @click="submit">登录</button></view>
+    <view class="row"><button type="primary" @click="submit">登录</button></view>
   </view>
 </template>
 
@@ -65,7 +86,6 @@ onBeforeUnmount(() => {
     width: 100%;
     height: 80rpx;
     line-height: 80rpx;
-    background: var(--primary-color);
     color: #ffffff;
     border: none;
     border-radius: 10rpx;

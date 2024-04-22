@@ -26,7 +26,7 @@ const typeArr = [
       >
         {{ item.text }}
       </view>
-    </view>
+    </view>    
   </view>
 </template>
 

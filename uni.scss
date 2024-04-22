@@ -3,5 +3,5 @@
 $primary-color: #c84341; // 主题颜色
 $uni-primary: #c84341;
 uni-button[type='primary'] {
-  background-color: $primary-color;
+  background-color: $primary-color !important;
 }

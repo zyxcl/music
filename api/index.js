@@ -177,3 +177,12 @@ export const commentApi = (type, id) => {
     }
   })
 }
+
+// 播客
+export const voicelistApi = () => {
+  return request({
+    url: `/voicelist/list/search`,
+    data: {
+    }
+  })
+}

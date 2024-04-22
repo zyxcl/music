@@ -1,6 +1,9 @@
 <script setup>
 import { qrKeyApi, qrCreateApi, qrCheckApi } from '@/api'
 import { ref, onBeforeUnmount } from 'vue'
+import { useUserStore } from '@/store/user'
+
+const userStore = useUserStore()
 
 const unikey = ref('')
 const qrimg = ref('')
@@ -24,8 +27,20 @@ const qrCheck = () => {
       qrStatus.value = '等待确认'
     } else if (res.code === 803) {
       qrStatus.value = '扫码成功'
-      // 登录成功
+      // 登录成功，把cookie存到本地
+      uni.setStorageSync('curCookie', res.cookie)
+      // 获取用户信息
+      userStore.getProfile()
+      uni.showToast({
+        title: '登录成功',
+        icon: 'success'
+      })
       clearInterval(timer)
+      setTimeout(() => {
+        uni.switchTab({
+          url: '/pages/index/index'
+        })
+      }, 1000)
     }
   }, 2000)
 }
