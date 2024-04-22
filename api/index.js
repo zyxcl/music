@@ -186,3 +186,11 @@ export const voicelistApi = () => {
     }
   })
 }
+
+// 每日推荐
+export const recommendSongsApi = () => {
+  return request({
+    url: `/recommend/songs`
+  })
+}
+

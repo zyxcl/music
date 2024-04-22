@@ -108,18 +108,6 @@
         "text": "发现"
       },
       {
-        "pagePath": "pages/podcast/podcast",
-        "iconPath": "static/icon/guangbo.png",
-        "selectedIconPath": "static/icon/guangbo_1.png",
-        "text": "播客"
-      },
-      {
-        "pagePath": "pages/community/community",
-        "iconPath": "static/icon/guangbo.png",
-        "selectedIconPath": "static/icon/guangbo_1.png",
-        "text": "社区"
-      },
-      {
         "pagePath": "pages/mine/mine",
         "iconPath": "static/icon/wode.png",
         "selectedIconPath": "static/icon/wode_1.png",

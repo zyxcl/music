@@ -42,14 +42,13 @@ const formatAr = (ar) => {
             :thumb="item.al.picUrl"
             thumb-size="base"
             clickable
+            ellipsis="1"
             @click="musicStore.changeMusic(index)"
           >
             <template v-slot:footer>
-              <view class="red" v-if="musicStore.currentIndex === index">
-                正在播放
-              </view>
-              <view class="" v-else>
-                播放
+              <view class="right-text">
+                <text class="red" v-if="musicStore.curSongDetail.id === item.id">正在播放</text>
+                <text v-else>播放</text>
               </view>
             </template>
           </uni-list-item>
@@ -63,7 +62,12 @@ const formatAr = (ar) => {
 .list {
   height: 1000rpx;
 }
+.right-text {
+  font-size: 12px;
+  line-height: 80rpx;
+  color: #999999;
+}
 .red {
-  color: red;
+  color: #c84341;
 }
 </style>

@@ -3,14 +3,17 @@
 import { ref } from 'vue'
 import { bannerApi, topPlaylistApi, dragonBalltApi } from '@/api'
 import { useUserStore } from '@/store/user'
-import PlayBar from '../../components/playerBar.vue'
+// import PlayBar from '../../components/playerBar.vue'
 
 
 // 引入store
 const userStore = useUserStore()
-
+// 轮播图
 const banners = ref([])
+// 推荐列表
 const playlist = ref([])
+// 用户信息蒙层
+const visibleUser = ref(false)
 
 const navIcons = [
   {
@@ -90,8 +93,6 @@ const link = (url) => {
   })
 }
 
-const userDrawer = ref(null)
-
 const goDetail = id => {
   uni.navigateTo({
     url: `/pages/songlist/songlist?id=${id}`
@@ -100,9 +101,10 @@ const goDetail = id => {
 	
 </script>
 <template>
+<playerBar>
 	<view class="container">
     <view class="header">
-      <uni-icons class="bars" color="#5e6d82" type="bars" size="30" @click="userDrawer.open()"></uni-icons>
+      <uni-icons class="bars" color="#5e6d82" type="bars" size="30" @click="visibleUser = true"></uni-icons>
       <view class="search" @click="goSearch">
         <uni-search-bar placeholder="搜索" bgColor="#EEEEEE" readonly />
       </view>
@@ -132,22 +134,10 @@ const goDetail = id => {
         </view>
       </view>
     </uni-section>
-    <uni-drawer ref="userDrawer" mode="left" :width="320">
-      <view v-if="userStore.profile">
-        <view class="">
-          {{userStore.profile.nickname}}
-        </view>
-        <image :src="userStore.profile.avatarUrl" mode=""></image>
-        {{userStore.profile}}
-      </view>
-      <navigator v-else url="/pages/login/login">登录</navigator>
-    </uni-drawer>
 	</view>
-  <PlayBar
-    <!-- #ifdef WEB -->
-    :padding="true"
-    <!-- #endif -->    
-  />
+  <userDeawer v-model:visible="visibleUser"></userDeawer>
+ </playerBar>
+
 </template>
 
 
@@ -200,7 +190,7 @@ const goDetail = id => {
 .playlist {
   display: flex;
   flex-wrap: nowrap;
-  padding: 0 30rpx;
+  padding: 0 30rpx 20rpx;
   overflow: auto;
 }
 .playlist::-webkit-scrollbar {
@@ -211,7 +201,8 @@ const goDetail = id => {
   flex-shrink: 0;
   margin-right: 20rpx;
   image {
-    width: 100%;
+    width: 240rpx;
+    height: 240rpx;
     border-radius: 10rpx;
   }
 }

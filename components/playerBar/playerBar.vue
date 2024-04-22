@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { useMusicStore } from '../store/music.js'
-import PlaylistCard from './playlistCard.vue'
+import { useMusicStore } from '@/store/music.js'
+import PlaylistCard from '../playlistCard.vue'
 const props = defineProps(['padding'])
 
 const musicStore = useMusicStore()
@@ -14,8 +14,11 @@ const goPlayer = () => {
 
 </script>
 <template>
-  <view v-if="musicStore.curSongDetail.name" :class="['play-bar', { padding: padding }]">
-    <uni-list :border="true">
+  <view class="player-bar-wrap">
+    <view class="content">
+      <slot></slot>
+    </view>
+    <uni-list v-if="musicStore.curSongDetail.name" :border="true">
       <uni-list-chat
         :title="musicStore.curSongDetail.name"
         :avatar="musicStore.curSongDetail.al?.picUrl"
@@ -24,29 +27,31 @@ const goPlayer = () => {
         @click="goPlayer"
       >
         <view class="chat-custom-right">
-          <image class="icon" src="../static/image/play.png" mode="widthFix" @click.stop="musicStore.play()"></image>
+          <button size="mini" @click.stop="musicStore.play()">{{ musicStore.isPlay ? '播放' : '暂停' }}</button>
           <button size="mini" @click.stop="visible = true">列表</button>
         </view>
       </uni-list-chat>
     </uni-list>
+    <PlaylistCard v-model:visible="visible" />
   </view>
-  <PlaylistCard v-model:visible="visible" />
 </template>
 
 
 
 <style lang="scss" scoped>
-.play-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+.player-bar-wrap {
   width: 100%;
+  height: $content-height;
+  display: flex;
+  flex-direction: column;
 }
-.padding {
-  bottom: 100rpx;
+.content {
+  flex: 1;
+  overflow: auto;
 }
 .chat-custom-right .icon {
   width: 80rpx;
   height: 80rpx;
 }
+
 </style>

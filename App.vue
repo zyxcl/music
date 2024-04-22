@@ -15,7 +15,7 @@ onLaunch(() => {
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-NVUE */
 	// 设置整个项目的背景色
-	page {
+	page, uni-page-body {
 		background-color: #ffffff;
     min-height: 100%;
 	}

@@ -1,5 +1,6 @@
 @import '@/uni_modules/uni-scss/variables.scss';
 
+$content-height: calc(100vh - var(--window-top) - var(--window-bottom));
 $primary-color: #c84341; // 主题颜色
 $uni-primary: #c84341;
 uni-button[type='primary'] {
