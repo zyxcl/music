@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, watchEffect } from 'vue'
-import { useMusicStore } from '../store/music.js'
+import { useMusicStore } from '@/store/music.js'
 
 const musicStore = useMusicStore()
 
@@ -30,7 +30,7 @@ const formatAr = (ar) => {
 
 <template>
   <uni-popup ref="popup" type="bottom" background-color="#fff" @change="change">
-   <uni-section title="播放列表" type="line">
+   <uni-section :title="`播放列表(${musicStore.playlist.length})`" type="line">
       <scroll-view scroll-y class="list" >
         <uni-list>
           <uni-list-item

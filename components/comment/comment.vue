@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, watchEffect } from 'vue'
-import { useMusicStore } from '../store/music.js'
+import { useMusicStore } from '@/store/music.js'
 import { commentApi } from '@/api'
 
 const musicStore = useMusicStore()

@@ -3,7 +3,6 @@
   import { onLoad } from '@dcloudio/uni-app'
   import { playlistDetailApi } from '@/api'
   import { useMusicStore } from '../../store/music.js'
-  import Comment from '../../components/comment.vue'
   
   const musicStore = useMusicStore()
   
@@ -80,7 +79,14 @@
   </view>
   <view class="song-list">
     <uni-list :border="true">
-      <uni-list-item title="播放全部" clickable @click="playAll"></uni-list-item>
+      <uni-list-item clickable @click="playAll">
+        <template v-slot:header>
+          <mIcon type="bofang2" color="#c84341" :size="26"></mIcon>
+        </template>
+        <template v-slot:body>
+          <view class="play-all">播放全部({{playlist.trackCount}})</view>
+        </template>
+      </uni-list-item>
       <uni-list-item
         v-for="(item, index) in playlist.tracks"
         :key="item.id"
@@ -96,10 +102,13 @@
             {{index + 1}}
           </view>
         </template>
+        <template v-slot:footer v-if="musicStore.curSongDetail.id === item.id">
+          <view class="right-text">正在播放</view>
+        </template>
       </uni-list-item>
     </uni-list>
   </view>
-  <Comment v-model:visible="showComment" type="playlist" :id="id" />    
+  <comment v-model:visible="showComment" type="playlist" :id="id" />    
 </playerBar>
 </template>
 
@@ -190,5 +199,16 @@
     line-height: 80rpx;
     font-weight: bold;
   }
+}
+.play-all {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding-left: 20rpx;
+}
+.right-text {
+  font-size: 12px;
+  line-height: 80rpx;
+  color: #c84341;
 }
 </style>

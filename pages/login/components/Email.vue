@@ -32,8 +32,8 @@
       if (res.code === 200) {
         // 登录成功，把cookie存到本地
         uni.setStorageSync('curCookie', res.cookie)
-        // 把用户信息存到store中
-        userStore.profile = res.profile
+        // 获取用户信息
+        userStore.getAccount()
         uni.showToast({
           title: '登录成功',
           icon: 'success'

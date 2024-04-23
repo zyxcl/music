@@ -3,8 +3,6 @@ import { songDetailApi, lyricApi, songUrlApi } from '@/api'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref, computed, watch, watchEffect } from 'vue'
 import { useMusicStore } from '../../store/music.js'
-import PlaylistCard from '@/components/playlistCard.vue'
-import Comment from '@/components/comment.vue'
 
 // 获取sotre对象
 const musicStore = useMusicStore()
@@ -126,9 +124,8 @@ const formatTime = (time) => {
       </view>
     </view>
   </view>
-  <Comment v-model:visible="showComment" type="music" :id="musicStore.curSongDetail.id" />
-  <PlaylistCard v-model:visible="showCard" />
-  <!-- <PlaylistCard :visible="showCard" @update:visible="showCard = $event" /> -->
+  <comment v-model:visible="showComment" type="music" :id="musicStore.curSongDetail.id" />
+  <playlistCard v-model:visible="showCard" />
 </template>
 
 <style lang="scss" scoped>

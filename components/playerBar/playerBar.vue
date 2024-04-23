@@ -1,7 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useMusicStore } from '@/store/music.js'
-import PlaylistCard from '../playlistCard.vue'
 const props = defineProps(['padding'])
 
 const musicStore = useMusicStore()
@@ -27,12 +26,12 @@ const goPlayer = () => {
         @click="goPlayer"
       >
         <view class="chat-custom-right">
-          <button size="mini" @click.stop="musicStore.play()">{{ musicStore.isPlay ? '播放' : '暂停' }}</button>
-          <button size="mini" @click.stop="visible = true">列表</button>
+          <mIcon class="l-icon" :size="24" :type="musicStore.isPlay ? 'zanting2' : 'bofang2'" @click.stop="musicStore.play()"></mIcon>
+          <mIcon :size="24" type="24gf-playlistMusic4" @click.stop="visible = true"></mIcon>
         </view>
       </uni-list-chat>
     </uni-list>
-    <PlaylistCard v-model:visible="visible" />
+    <playlistCard v-model:visible="visible" />
   </view>
 </template>
 
@@ -49,9 +48,13 @@ const goPlayer = () => {
   flex: 1;
   overflow: auto;
 }
-.chat-custom-right .icon {
-  width: 80rpx;
-  height: 80rpx;
+.chat-custom-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .l-icon {
+    margin-right: 30rpx;
+  }
 }
 
 </style>

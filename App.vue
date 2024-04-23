@@ -5,8 +5,8 @@ import { useUserStore } from './store/user'
 const userStore = useUserStore()
 
 onLaunch(() => {
-  // 获取用户信息
-  userStore.getProfile()
+  // 获取账号信息
+  userStore.getAccount()
 })
 </script>
 

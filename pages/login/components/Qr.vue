@@ -30,7 +30,7 @@ const qrCheck = () => {
       // 登录成功，把cookie存到本地
       uni.setStorageSync('curCookie', res.cookie)
       // 获取用户信息
-      userStore.getProfile()
+      userStore.getAccount()
       uni.showToast({
         title: '登录成功',
         icon: 'success'
