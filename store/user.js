@@ -17,7 +17,6 @@ export const useUserStore = defineStore('user', () => {
       listenSongs: res.listenSongs,
       createDays: res.createDays,
     }
-    console.log(profile.value);
   }
   
   const getAccount = async () => {

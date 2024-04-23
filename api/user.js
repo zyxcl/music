@@ -10,3 +10,12 @@ export const userDetailApi = (uid) => {
     }
   })
 }
+// 用户歌单
+export const userPlaylistApi = (uid) => {
+  return request({
+    url: '/user/playlist',
+    data: {
+      uid
+    }
+  })
+}

@@ -64,15 +64,15 @@
       <view class="btns">
         <view class="btn">
           <uni-icons type="redo-filled" size="20" color="#ffffff"></uni-icons>
-          {{ playlist.shareCount }}
+          {{ playlist.shareCount || '分享' }}
         </view>
         <view class="btn" @click="showComment = true">
           <uni-icons type="chat-filled" size="20" color="#ffffff"></uni-icons>
-          {{ playlist.commentCount }}
+          {{ playlist.commentCount || '评论'  }}
         </view>
         <view class="btn">
           <uni-icons type="folder-add-filled" size="20" color="#ffffff"></uni-icons>
-          {{ playlist.subscribedCount }}
+          {{ playlist.subscribedCount || '收藏' }}
         </view>
       </view>
     </view>
