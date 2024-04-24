@@ -1,1 +1,0 @@
-import{o as e,c as s,w as t,i as a,m as o}from"./index-e7db9b22.js";import{_ as r}from"./plugin-vueexport-helper.1b428a4d.js";const n=r({data:()=>({}),methods:{}},[["render",function(r,n,i,u,d,l){const m=a;return e(),s(m,null,{default:t((()=>[o(" 社区 ")])),_:1})}]]);export{n as default};
