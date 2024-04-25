@@ -1,15 +1,17 @@
 
-// const BaseURL = 'https://zyxcl.xyz/music_api'
-const BaseURL = 'http://121.89.213.194:5001'
+const BaseURL = 'https://zyxcl.xyz/music/api'
+// const BaseURL = 'http://121.89.213.194:5001'
 
 // 封装请求函数
 const request = ({ url, method = 'GET', data = {}, header = {} }) => {
   return new Promise((resolve, reject) => {
+    const curCookie = uni.getStorageSync('curCookie') || ''
+    const cookieData = curCookie ? { curCookie } : {}
     uni.request({
       url: BaseURL + url,
       method,
       data: {
-        cookie: uni.getStorageSync('curCookie') || '',
+        ...cookieData,
         ...data
       },
       header,

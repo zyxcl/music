@@ -3,7 +3,10 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "首页"
+        "navigationBarTitleText": "首页",
+        // #ifdef H5
+        "navigationStyle": "custom"
+        // #endif
       }
     },
     {

@@ -1,5 +1,9 @@
 import request from './request.js'
 
+// 首页
+export const homepageApi = () => {
+  return request({ url: '/homepage/block/page' })
+}
 // 轮播图
 export const bannerApi = () => {
   return request({ url: '/banner' })
