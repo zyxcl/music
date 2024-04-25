@@ -86,10 +86,10 @@ const formatTime = (time) => {
         </view>
       </scroll-view>
       <view class="song-disc" v-else>
-        <image class="needle-ab" src="../../static/image/needle-ab.png" mode="widthFix"></image>
+        <image class="needle-ab nobg" src="../../static/image/needle-ab.png" mode="widthFix"></image>
         <view class="song-circle">
-          <image class="circle-bg" src="../../static/image/disc.png" mode="widthFix"></image>
-          <image :src="musicStore.curSongDetail.al?.picUrl" mode="widthFix"></image>
+          <image class="circle-bg nobg" src="../../static/image/disc.png" mode="widthFix"></image>
+          <image class="nobg" :src="musicStore.curSongDetail.al?.picUrl" mode="widthFix"></image>
         </view>
       </view>
     </div>
@@ -118,7 +118,7 @@ const formatTime = (time) => {
         <image class="icon" v-if="musicStore.isRandom" src="../../static/icon/suiji.png" mode="widthFix" @click="musicStore.isRandom = false"></image>
         <uni-icons class="icon" v-else type="loop" color="#ffffff" @click="musicStore.isRandom = true"></uni-icons>
         <uni-icons class="icon" type="arrow-left" color="#ffffff" @click="musicStore.changeMusic(musicStore.currentIndex - 1)"></uni-icons>
-        <image class="icon" :src="playBtnSrc" mode="widthFix" @click="musicStore.play()"></image>
+        <image class="icon nobg" :src="playBtnSrc" mode="widthFix" @click="musicStore.play()"></image>
         <uni-icons class="icon" type="arrow-right" color="#ffffff" @click="musicStore.changeMusic(musicStore.currentIndex + 1)"></uni-icons>
         <uni-icons class="icon" type="list" color="#ffffff" @click="showCard = true"></uni-icons>
       </view>

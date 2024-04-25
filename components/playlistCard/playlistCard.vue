@@ -40,7 +40,7 @@ const formatAr = (ar) => {
             :note="formatAr(item.ar)"
             showArrow
             :thumb="item.al.picUrl"
-            thumb-size="base"
+            thumb-size="lg"
             clickable
             ellipsis="1"
             @click="musicStore.changeMusic(index)"

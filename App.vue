@@ -13,16 +13,17 @@ onLaunch(() => {
 <style lang="scss">
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
-	/* #ifndef APP-NVUE */
-	// 设置整个项目的背景色
 	page, uni-page-body {
 		background-color: #ffffff;
     min-height: 100%;
 	}
-  
   .uni-section .uni-section-header__decoration {
     background-color: $primary-color !important;
   }
-
-	/* #endif */
+  image {
+    background-color: #f4f4f4;
+  }
+  image.nobg {
+    background-color: transparent;
+  }
 </style>

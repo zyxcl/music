@@ -20,7 +20,7 @@
 .swiper {
   border-radius: 20rpx;
   overflow: hidden;
-  height: 256rpx;
+  height: 268rpx;
   image {
     width: 100%;
   }
