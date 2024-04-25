@@ -1,6 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3834310 */
-  src: url('iconfont.ttf?t=1713834307158') format('truetype');
+  src: url('iconfont.woff2?t=1714025904463') format('woff2'),
+       url('iconfont.woff?t=1714025904463') format('woff'),
+       url('iconfont.ttf?t=1714025904463') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bofangzhong:before {
+  content: "\e607";
 }
 
 .icon-suijibofang:before {
