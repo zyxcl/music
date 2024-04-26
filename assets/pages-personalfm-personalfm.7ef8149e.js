@@ -1,0 +1,1 @@
+import{o as e,c as s,w as t,i as a,m as o}from"./index-173c4a47.js";import{_ as r}from"./plugin-vueexport-helper.1b428a4d.js";const n=r({data:()=>({}),methods:{}},[["render",function(r,n,u,d,i,l){const m=a;return e(),s(m,null,{default:t((()=>[o(" 私人FM ")])),_:1})}]]);export{n as default};
