@@ -24,19 +24,14 @@ homepageApi().then(res => {
 <playerBar>
   <Header />
   <view class="block" v-for="(block, index) in blocks">
-    <!-- {{block.showType}} -->
     <!-- 轮播 -->
     <Banner v-if="block.showType === 'BANNER'" :banners="block.extInfo.banners" />
     <!-- icon图标 -->
     <Ball v-else-if="block.showType === 'DRAGON_BALL'" />
     <!-- 歌单 -->
     <Playlist v-else-if="block.showType === 'HOMEPAGE_SLIDE_PLAYLIST'" :title="block.uiElement.subTitle.title" :list="block.creatives" />
-    <!-- <Playlist v-else-if="block.showType === 'HEART_LYRICS'" :title="block.uiElement.subTitle.title" :list="block.creatives[0].resources" /> -->
     <!-- 歌曲 -->
     <Songs v-else-if="block.showType === 'HOMEPAGE_SLIDE_SONGLIST_ALIGN'" :title="block.uiElement.subTitle.title" :list="block.creatives" :ids="block.resourceIdList" />
- <!--   <uni-section v-else type="line" :title="block.uiElement?.subTitle.title">
-    </uni-section> -->
-    
   </view>
  </playerBar>
 
