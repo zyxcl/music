@@ -6,7 +6,7 @@ import { useUserStore } from '@/store/user'
 // 引入store
 const userStore = useUserStore()
 const countDown = ref(0)
-const phone = ref('15801154632')
+const phone = ref('')
 const captcha = ref('')
 const captchaText = computed(() => {
   return countDown.value === 0 ? '获取验证码' : `${countDown.value}s`

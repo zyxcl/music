@@ -21,7 +21,7 @@
   }
   // 把当前所有歌曲添加到播放列表
   const playAll = () => {
-    const ids = playlist.value.trackIds.map(v => v.id)
+    const ids = playlist.value.map(v => v.id)
     musicStore.playAllSongs(ids)
     uni.navigateTo({
       url: `/pages/player/player`
