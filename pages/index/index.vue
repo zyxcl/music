@@ -23,7 +23,7 @@ homepageApi().then(res => {
 <template>
 <playerBar>
   <Header />
-  <view class="block" v-for="(block, index) in blocks">
+  <view class="block" v-for="block in blocks" :key="block.blockCode">
     <!-- 轮播 -->
     <Banner v-if="block.showType === 'BANNER'" :banners="block.extInfo.banners" />
     <!-- icon图标 -->
