@@ -1,6 +1,8 @@
 
-// const BaseURL = 'https://zyxcl.xyz/music/api'
-const BaseURL = 'http://121.89.213.194:5001'
+const BaseURL = 'https://music.zyxcl.xyz'
+// const BaseURL = 'http://121.89.213.194:5001'
+
+
 
 let loadingCount = 0
 
